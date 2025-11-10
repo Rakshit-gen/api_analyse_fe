@@ -37,7 +37,7 @@ export default function LandingPage() {
                   </Button>
                 </SignInButton>
                 <SignUpButton mode="modal">
-                  <Button size="sm" className="hover-lift bg-gradient-to-r from-primary to-primary/80">
+                  <Button size="sm" className="hover-lift hidden md:flex bg-gradient-to-r from-primary to-primary/80">
                     Get Started
                   </Button>
                 </SignUpButton>
