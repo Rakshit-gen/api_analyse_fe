@@ -5,6 +5,7 @@ import { Terminal, Sparkles, Loader2 } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
 import { DotPattern } from "./DotPattern";
 import DebugForm from "./DebugForm";
+import Link from "next/link";
 
 export default function DashboardClient() {
   const { user, isLoaded } = useUser();
@@ -26,6 +27,7 @@ export default function DashboardClient() {
       <div className="border-b backdrop-blur-sm bg-background/80 sticky top-0 z-50">
         <div className="container mx-auto px-4 py-6">
           <div className="flex items-center justify-between">
+            <Link href={'/'}>
             <div className="flex items-center gap-3">
               <div className="h-10 w-10 rounded-lg bg-primary/10 flex items-center justify-center">
                 <Terminal className="h-5 w-5 text-primary" />
@@ -35,6 +37,7 @@ export default function DashboardClient() {
                 <p className="text-sm text-muted-foreground">Multi-agent diagnostic system</p>
               </div>
             </div>
+          </Link>
             <div className="flex items-center gap-4">
               <div className="hidden sm:flex items-center gap-2 text-sm text-muted-foreground">
                 <Sparkles className="h-4 w-4" />
