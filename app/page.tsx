@@ -67,7 +67,7 @@ export default function LandingPage() {
           <br></br>
 
 
-<div className="mt-10 inline-flex h-24 w-24 rounded-3xl bg-gradient-to-br from-primary/20 via-primary/10 to-transparent backdrop-blur-sm items-center justify-center shadow-2xl border border-primary/20 fade-in-up animation-delay-100 hover-lift">
+<div className="mt-4 inline-flex h-24 w-24 rounded-3xl bg-gradient-to-br from-primary/20 via-primary/10 to-transparent backdrop-blur-sm items-center justify-center shadow-2xl border border-primary/20 fade-in-up animation-delay-100 hover-lift">
             <Terminal className="h-12 w-12 text-primary" />
           </div>
           {/* Main Heading with Gradient */}
