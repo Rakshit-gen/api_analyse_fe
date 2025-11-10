@@ -332,15 +332,15 @@ export default function DebugForm() {
                         <div className="prose prose-sm dark:prose-invert max-w-none bg-muted/50 backdrop-blur-sm p-4 rounded-md overflow-auto max-h-[500px] text-xs border">
                           <ReactMarkdown
                             components={{
-                              h1: ({ node, ...props }) => <h1 className="text-sm font-semibold mt-4 mb-2" {...props} />,
-                              h2: ({ node, ...props }) => <h2 className="text-sm font-semibold mt-3 mb-2" {...props} />,
-                              h3: ({ node, ...props }) => <h3 className="text-xs font-semibold mt-2 mb-1" {...props} />,
-                              p: ({ node, ...props }) => <p className="text-xs leading-relaxed mb-2" {...props} />,
-                              code: ({ node, ...props }) => <code className="text-xs bg-background/80 backdrop-blur-sm px-1 py-0.5 rounded border" {...props} />,
-                              pre: ({ node, ...props }) => <pre className="text-xs bg-background/80 backdrop-blur-sm p-2 rounded my-2 overflow-x-auto border" {...props} />,
-                              ul: ({ node, ...props }) => <ul className="text-xs space-y-1 my-2" {...props} />,
-                              ol: ({ node, ...props }) => <ol className="text-xs space-y-1 my-2" {...props} />,
-                              li: ({ node, ...props }) => <li className="text-xs" {...props} />,
+                              h1: ({ node, ...props }) => <h1 className="text-md font-semibold mt-4 mb-2" {...props} />,
+                              h2: ({ node, ...props }) => <h2 className="text-md font-semibold mt-3 mb-2" {...props} />,
+                              h3: ({ node, ...props }) => <h3 className="text-md font-semibold mt-2 mb-1" {...props} />,
+                              p: ({ node, ...props }) => <p className="text-sm leading-relaxed mb-2" {...props} />,
+                              code: ({ node, ...props }) => <code className="text-sm bg-background/80 backdrop-blur-sm px-1 py-0.5 rounded border" {...props} />,
+                              pre: ({ node, ...props }) => <pre className="text-sm bg-background/80 backdrop-blur-sm p-2 rounded my-2 overflow-x-auto border" {...props} />,
+                              ul: ({ node, ...props }) => <ul className="text-sm space-y-1 my-2" {...props} />,
+                              ol: ({ node, ...props }) => <ol className="text-sm space-y-1 my-2" {...props} />,
+                              li: ({ node, ...props }) => <li className="text-sm" {...props} />,
                             }}
                           >
                             {result.solution}
