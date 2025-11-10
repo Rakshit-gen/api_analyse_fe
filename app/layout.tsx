@@ -9,6 +9,11 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "API Integration Debugger",
   description: "AI-powered multi-agent system to diagnose and fix API integration issues",
+  icons: {
+    icon: "/terminal.png",
+    shortcut: "/terminal.png",
+    apple: "/terminal.png",
+  },
 };
 
 export default function RootLayout({
