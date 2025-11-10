@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://api-analyse-be.onrender.com/';
+const API_BASE_URL = 'https://api-analyse-be.onrender.com/'
 
 export interface APIRequest {
   method: string;
