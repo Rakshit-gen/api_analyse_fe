@@ -8,7 +8,7 @@ import { dark } from '@clerk/themes'
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "API Integration Debugger",
+  title: "SentralQ - API Integration Debugger",
   description: "AI-powered multi-agent system to diagnose and fix API integration issues",
   icons: {
     icon: "/terminal.png",

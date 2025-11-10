@@ -25,7 +25,7 @@ export default function LandingPage() {
               <div className="h-8 w-8 rounded-lg bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                 <Terminal className="h-4 w-4 text-primary" />
               </div>
-              <span className="font-semibold text-lg">API Debugger</span>
+              <span className="font-semibold text-lg">SentralQ</span>
             </div>
             
             <div className="flex items-center gap-3">
@@ -93,13 +93,13 @@ export default function LandingPage() {
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10 fade-in-up animation-delay-400">
             <SignedOut>
-              <SignUpButton mode="modal">
+              <SignUpButton mode="modal" forceRedirectUrl="/dashboard">
                 <Button size="lg" className="h-14 px-10 text-base shadow-xl hover-lift group bg-gradient-to-r from-primary to-primary/90 hover:shadow-2xl">
                   Start Debugging Free
                   <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </SignUpButton>
-              <SignInButton mode="modal">
+              <SignInButton mode="modal" forceRedirectUrl="/dashboard">
                 <Button size="lg" variant="outline" className="h-14 px-10 text-base backdrop-blur-sm border-2 hover-lift">
                   Sign In
                 </Button>

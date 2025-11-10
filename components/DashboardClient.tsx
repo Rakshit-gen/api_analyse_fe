@@ -31,7 +31,7 @@ export default function DashboardClient() {
                 <Terminal className="h-5 w-5 text-primary" />
               </div>
               <div>
-                <h1 className="text-xl font-semibold tracking-tight">API Debugger</h1>
+                <h1 className="text-xl font-semibold tracking-tight">SentralQ</h1>
                 <p className="text-sm text-muted-foreground">Multi-agent diagnostic system</p>
               </div>
             </div>
