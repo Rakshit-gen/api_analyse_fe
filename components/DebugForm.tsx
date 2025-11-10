@@ -111,7 +111,7 @@ export default function DebugForm() {
             <Zap className="h-3.5 w-3.5 text-primary" />
             <span className="text-xs font-medium text-primary">AI-Powered Multi-Agent System</span>
           </div>
-          <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-slate-800">
+          <h1 className="text-4xl md:text-6xl font-bold tracking-tight bg-gradient-to-r from-slate-900 to-slate-600 dark:from-slate-100 dark:to-slate-400 bg-clip-text text-transparent">
             API Integration Debugger
           </h1>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
@@ -183,7 +183,7 @@ export default function DebugForm() {
 
         <div className="grid lg:grid-cols-2 gap-8">
           {/* Enhanced Input Form */}
-          <Card className="border-muted shadow-lg">
+          <Card className="border-muted shadow-lg lg:h-fit">
             <CardHeader className="space-y-3">
               <div className="flex items-center justify-between">
                 <CardTitle className="text-2xl">Debug Request</CardTitle>
@@ -339,7 +339,7 @@ export default function DebugForm() {
           </Card>
 
           {/* Enhanced Results Panel */}
-          <Card className="lg:sticky lg:top-8 lg:self-start border-muted shadow-lg">
+          <Card className="border-muted shadow-lg lg:sticky lg:top-8 lg:self-start lg:max-h-[calc(100vh-4rem)] flex flex-col">
             <CardHeader className="space-y-3">
               <div className="flex items-center justify-between">
                 <CardTitle className="text-2xl">Analysis Results</CardTitle>
@@ -354,7 +354,7 @@ export default function DebugForm() {
                 AI-generated diagnosis and solution
               </CardDescription>
             </CardHeader>
-            <CardContent>
+            <CardContent className="lg:overflow-y-auto lg:max-h-[calc(100vh-16rem)]">
               {error && (
                 <div className="flex items-start gap-3 p-4 bg-destructive/10 border border-destructive/30 rounded-lg animate-in fade-in slide-in-from-top-2 duration-300">
                   <AlertCircle className="h-5 w-5 text-destructive flex-shrink-0 mt-0.5" />
