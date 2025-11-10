@@ -7,9 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Badge } from "@/components/ui/badge";
-import { Separator } from "@/components/ui/separator";
-import { Loader2, AlertCircle, CheckCircle2, Zap, Code2, Shield, Activity } from "lucide-react";
+import { Loader2, AlertTriangle, CheckCircle2, Code2, FileCode } from "lucide-react";
 import { debugAPI, type DebugRequest } from "@/lib/api";
 import ReactMarkdown from "react-markdown";
 
@@ -103,126 +101,59 @@ export default function DebugForm() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-slate-100 dark:from-slate-950 dark:via-blue-950/20 dark:to-slate-900 p-4 md:p-8">
-      <div className="max-w-7xl mx-auto space-y-8">
-        {/* Enhanced Header */}
-        <div className="text-center space-y-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 mb-2">
-            <Zap className="h-3.5 w-3.5 text-primary" />
-            <span className="text-xs font-medium text-primary">AI-Powered Multi-Agent System</span>
-          </div>
-          <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-slate-800">
-            API Integration Debugger
-          </h1>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Diagnose and fix API issues in seconds with intelligent analysis
-          </p>
-        </div>
+    <div className="container mx-auto px-4 py-8">
+      {/* Example Pills */}
+      <div className="flex items-center gap-2 mb-6">
+        <span className="text-sm text-muted-foreground">Quick start:</span>
+        <Button size="sm" className="h-8 text-xs" onClick={() => loadExample("401")}>
+          401 Auth
+        </Button>
+        <Button size="sm" className="h-8 text-xs" onClick={() => loadExample("400")}>
+          400 Validation
+        </Button>
+        <Button size="sm" className="h-8 text-xs" onClick={() => loadExample("429")}>
+          429 Rate Limit
+        </Button>
+      </div>
 
-        {/* Feature Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
-          <Card className="border-muted hover:border-primary/50 transition-colors">
-            <CardContent className="pt-6 text-center space-y-2">
-              <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary mb-2">
-                <Code2 className="h-5 w-5" />
-              </div>
-              <h3 className="font-semibold text-sm">Smart Analysis</h3>
-              <p className="text-xs text-muted-foreground">AI agents analyze your API issues</p>
-            </CardContent>
-          </Card>
-          <Card className="border-muted hover:border-primary/50 transition-colors">
-            <CardContent className="pt-6 text-center space-y-2">
-              <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary mb-2">
-                <Shield className="h-5 w-5" />
-              </div>
-              <h3 className="font-semibold text-sm">Auth Detection</h3>
-              <p className="text-xs text-muted-foreground">Automatic authentication debugging</p>
-            </CardContent>
-          </Card>
-          <Card className="border-muted hover:border-primary/50 transition-colors">
-            <CardContent className="pt-6 text-center space-y-2">
-              <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary mb-2">
-                <Activity className="h-5 w-5" />
-              </div>
-              <h3 className="font-semibold text-sm">Instant Solutions</h3>
-              <p className="text-xs text-muted-foreground">Get actionable fixes immediately</p>
-            </CardContent>
-          </Card>
-        </div>
-
-        {/* Example Buttons */}
-        <div className="flex flex-wrap gap-2 justify-center">
-          <Button 
-            variant="outline" 
-            size="sm" 
-            onClick={() => loadExample("401")}
-            className="hover:bg-orange-50 hover:text-orange-700 hover:border-orange-200 dark:hover:bg-orange-950/20"
-          >
-            <Badge variant="outline" className="mr-2 border-orange-500 text-orange-700 dark:text-orange-400">401</Badge>
-            Auth Error
-          </Button>
-          <Button 
-            variant="outline" 
-            size="sm" 
-            onClick={() => loadExample("400")}
-            className="hover:bg-red-50 hover:text-red-700 hover:border-red-200 dark:hover:bg-red-950/20"
-          >
-            <Badge variant="outline" className="mr-2 border-red-500 text-red-700 dark:text-red-400">400</Badge>
-            Validation Error
-          </Button>
-          <Button 
-            variant="outline" 
-            size="sm" 
-            onClick={() => loadExample("429")}
-            className="hover:bg-yellow-50 hover:text-yellow-700 hover:border-yellow-200 dark:hover:bg-yellow-950/20"
-          >
-            <Badge variant="outline" className="mr-2 border-yellow-500 text-yellow-700 dark:text-yellow-400">429</Badge>
-            Rate Limit
-          </Button>
-        </div>
-
-        <div className="grid lg:grid-cols-2 gap-8">
-          {/* Enhanced Input Form */}
-          <Card className="border-muted shadow-lg">
-            <CardHeader className="space-y-3">
-              <div className="flex items-center justify-between">
-                <CardTitle className="text-2xl">Debug Request</CardTitle>
-                <Badge variant="secondary" className="text-xs">Required</Badge>
-              </div>
-              <CardDescription>
-                Provide details about your API problem for AI analysis
+      <div className="grid lg:grid-cols-5 gap-6">
+        {/* Input Form - 3 columns */}
+        <div className="lg:col-span-3 space-y-6">
+          <Card className="border-2 backdrop-blur-sm bg-card/50 shadow-lg">
+            <CardHeader className="pb-4">
+              <CardTitle className="text-lg font-medium">Describe the Issue</CardTitle>
+              <CardDescription className="text-xs">
+                What API problem are you experiencing?
               </CardDescription>
             </CardHeader>
             <CardContent>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="space-y-2">
-                  <Label htmlFor="issue" className="text-base font-semibold">Issue Description</Label>
+                  <Label htmlFor="issue" className="text-sm font-medium">Issue Description</Label>
                   <Textarea
                     id="issue"
-                    placeholder="e.g., I'm getting 401 Unauthorized error when calling the API"
+                    placeholder="Example: Getting 401 Unauthorized when calling the /users endpoint..."
                     value={issueDescription}
                     onChange={(e) => setIssueDescription(e.target.value)}
                     rows={3}
                     required
-                    className="resize-none"
+                    className="resize-none text-sm"
                   />
                 </div>
 
-                <Separator />
-
                 <Tabs defaultValue="request" className="w-full">
-                  <TabsList className="grid w-full grid-cols-3">
-                    <TabsTrigger value="request">Request</TabsTrigger>
-                    <TabsTrigger value="response">Response</TabsTrigger>
-                    <TabsTrigger value="auth">Auth</TabsTrigger>
+                  <TabsList className="grid w-full grid-cols-3 h-9">
+                    <TabsTrigger value="request" className="text-xs">Request</TabsTrigger>
+                    <TabsTrigger value="response" className="text-xs">Response</TabsTrigger>
+                    <TabsTrigger value="auth" className="text-xs">Auth</TabsTrigger>
                   </TabsList>
 
                   <TabsContent value="request" className="space-y-4 mt-4">
-                    <div className="grid grid-cols-2 gap-4">
+                    <div className="grid grid-cols-2 gap-3">
                       <div className="space-y-2">
-                        <Label className="text-sm font-medium">HTTP Method</Label>
+                        <Label className="text-xs font-medium">Method</Label>
                         <Select value={method} onValueChange={setMethod}>
-                          <SelectTrigger>
+                          <SelectTrigger className="h-9 text-sm">
                             <SelectValue />
                           </SelectTrigger>
                           <SelectContent>
@@ -235,75 +166,75 @@ export default function DebugForm() {
                         </Select>
                       </div>
                       <div className="space-y-2">
-                        <Label htmlFor="url" className="text-sm font-medium">URL</Label>
+                        <Label htmlFor="url" className="text-xs font-medium">Endpoint URL</Label>
                         <input
                           id="url"
                           type="text"
-                          placeholder="https://api.example.com"
+                          placeholder="https://api.example.com/..."
                           value={url}
                           onChange={(e) => setUrl(e.target.value)}
-                          className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                          className="flex h-9 w-full rounded-md border border-input bg-background px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
                         />
                       </div>
                     </div>
 
                     <div className="space-y-2">
-                      <Label htmlFor="headers" className="text-sm font-medium">Headers (JSON)</Label>
+                      <Label htmlFor="headers" className="text-xs font-medium">Headers (JSON)</Label>
                       <Textarea
                         id="headers"
                         placeholder='{"Content-Type": "application/json"}'
                         value={headers}
                         onChange={(e) => setHeaders(e.target.value)}
                         rows={3}
-                        className="font-mono text-xs"
+                        className="font-mono text-xs resize-none"
                       />
                     </div>
 
                     <div className="space-y-2">
-                      <Label htmlFor="body" className="text-sm font-medium">Request Body (JSON)</Label>
+                      <Label htmlFor="body" className="text-xs font-medium">Request Body (JSON)</Label>
                       <Textarea
                         id="body"
                         placeholder='{"key": "value"}'
                         value={body}
                         onChange={(e) => setBody(e.target.value)}
                         rows={4}
-                        className="font-mono text-xs"
+                        className="font-mono text-xs resize-none"
                       />
                     </div>
                   </TabsContent>
 
                   <TabsContent value="response" className="space-y-4 mt-4">
                     <div className="space-y-2">
-                      <Label htmlFor="statusCode" className="text-sm font-medium">Status Code</Label>
+                      <Label htmlFor="statusCode" className="text-xs font-medium">Status Code</Label>
                       <input
                         id="statusCode"
                         type="number"
-                        placeholder="e.g., 401"
+                        placeholder="401"
                         value={statusCode}
                         onChange={(e) => setStatusCode(e.target.value)}
-                        className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                        className="flex h-9 w-full rounded-md border border-input bg-background px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
                       />
                     </div>
 
                     <div className="space-y-2">
-                      <Label htmlFor="responseBody" className="text-sm font-medium">Response Body</Label>
+                      <Label htmlFor="responseBody" className="text-xs font-medium">Response Body</Label>
                       <Textarea
                         id="responseBody"
                         placeholder='{"error": "Unauthorized"}'
                         value={responseBody}
                         onChange={(e) => setResponseBody(e.target.value)}
                         rows={8}
-                        className="font-mono text-xs"
+                        className="font-mono text-xs resize-none"
                       />
                     </div>
                   </TabsContent>
 
                   <TabsContent value="auth" className="space-y-4 mt-4">
                     <div className="space-y-2">
-                      <Label className="text-sm font-medium">Authentication Type</Label>
+                      <Label className="text-xs font-medium">Authentication Type</Label>
                       <Select value={authType} onValueChange={setAuthType}>
-                        <SelectTrigger>
-                          <SelectValue placeholder="Select auth type" />
+                        <SelectTrigger className="h-9 text-sm">
+                          <SelectValue placeholder="Select type (optional)" />
                         </SelectTrigger>
                         <SelectContent>
                           <SelectItem value="bearer">Bearer Token</SelectItem>
@@ -313,153 +244,131 @@ export default function DebugForm() {
                         </SelectContent>
                       </Select>
                     </div>
-                    <div className="p-3 bg-muted rounded-lg">
-                      <p className="text-xs text-muted-foreground">
-                        Select the authentication method used by your API for better diagnosis
-                      </p>
-                    </div>
+                    <p className="text-xs text-muted-foreground">
+                      Optional: Helps agents provide auth-specific guidance
+                    </p>
                   </TabsContent>
                 </Tabs>
 
-                <Button type="submit" className="w-full h-11 text-base font-semibold" disabled={loading}>
+                <Button type="submit" className="w-full h-10" disabled={loading}>
                   {loading ? (
                     <>
-                      <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-                      Analyzing with AI...
+                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                      Analyzing
                     </>
                   ) : (
                     <>
-                      <Zap className="mr-2 h-5 w-5" />
-                      Debug My API
+                      <Code2 className="mr-2 h-4 w-4" />
+                      Analyze Issue
                     </>
                   )}
                 </Button>
               </form>
             </CardContent>
           </Card>
+        </div>
 
-          {/* Enhanced Results Panel */}
-          <Card className="lg:sticky lg:top-8 lg:self-start border-muted shadow-lg">
-            <CardHeader className="space-y-3">
-              <div className="flex items-center justify-between">
-                <CardTitle className="text-2xl">Analysis Results</CardTitle>
-                {result && (
-                  <Badge variant="default" className="bg-green-500">
-                    <CheckCircle2 className="mr-1 h-3 w-3" />
-                    Complete
-                  </Badge>
-                )}
-              </div>
-              <CardDescription>
-                AI-generated diagnosis and solution
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              {error && (
-                <div className="flex items-start gap-3 p-4 bg-destructive/10 border border-destructive/30 rounded-lg animate-in fade-in slide-in-from-top-2 duration-300">
-                  <AlertCircle className="h-5 w-5 text-destructive flex-shrink-0 mt-0.5" />
-                  <div className="space-y-1 flex-1">
-                    <p className="text-sm font-semibold text-destructive">Error Occurred</p>
-                    <p className="text-sm text-destructive/90">{error}</p>
-                  </div>
-                </div>
-              )}
-
-              {result && (
-                <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
-                  {/* Root Cause */}
-                  {result.root_cause && (
-                    <div className="space-y-3">
-                      <div className="flex items-center gap-2">
-                        <div className="h-8 w-8 rounded-lg bg-orange-100 dark:bg-orange-950/30 flex items-center justify-center">
-                          <AlertCircle className="h-4 w-4 text-orange-600 dark:text-orange-500" />
-                        </div>
-                        <h3 className="font-semibold text-lg">Root Cause</h3>
-                      </div>
-                      <Card className="border-orange-200 dark:border-orange-900/30 bg-orange-50/50 dark:bg-orange-950/10">
-                        <CardContent className="pt-4">
-                          <p className="text-sm leading-relaxed">{result.root_cause}</p>
-                        </CardContent>
-                      </Card>
+        {/* Results Panel - 2 columns */}
+        <div className="lg:col-span-2">
+          <div className="lg:sticky lg:top-6">
+            <Card className="border-2 backdrop-blur-sm bg-card/50 shadow-lg">
+              <CardHeader className="pb-4">
+                <CardTitle className="text-lg font-medium">Diagnosis</CardTitle>
+                <CardDescription className="text-xs">
+                  AI-generated analysis and solution
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                {error && (
+                  <div className="flex items-start gap-3 p-3 bg-destructive/5 border border-destructive/20 rounded-lg">
+                    <AlertTriangle className="h-4 w-4 text-destructive flex-shrink-0 mt-0.5" />
+                    <div className="space-y-1 flex-1">
+                      <p className="text-xs font-medium">Error</p>
+                      <p className="text-xs text-muted-foreground">{error}</p>
                     </div>
-                  )}
+                  </div>
+                )}
 
-                  {/* Solution */}
-                  {result.solution && (
-                    <>
-                      <Separator />
-                      <div className="space-y-3">
+                {result && (
+                  <div className="space-y-4">
+                    {result.root_cause && (
+                      <div className="space-y-2">
                         <div className="flex items-center gap-2">
-                          <div className="h-8 w-8 rounded-lg bg-green-100 dark:bg-green-950/30 flex items-center justify-center">
-                            <CheckCircle2 className="h-4 w-4 text-green-600 dark:text-green-500" />
+                          <div className="h-6 w-6 rounded-md bg-orange-500/10 flex items-center justify-center">
+                            <AlertTriangle className="h-3.5 w-3.5 text-orange-600" />
                           </div>
-                          <h3 className="font-semibold text-lg">Recommended Solution</h3>
+                          <h3 className="text-sm font-medium">Root Cause</h3>
                         </div>
-                        <Card className="border-green-200 dark:border-green-900/30 bg-green-50/50 dark:bg-green-950/10">
-                          <CardContent className="pt-4">
-                            <div className="prose prose-sm dark:prose-invert max-w-none overflow-auto max-h-[400px]">
-                              <ReactMarkdown>{result.solution}</ReactMarkdown>
-                            </div>
-                          </CardContent>
-                        </Card>
+                        <p className="text-xs text-muted-foreground bg-muted/50 p-3 rounded-md leading-relaxed">
+                          {result.root_cause}
+                        </p>
                       </div>
-                    </>
-                  )}
+                    )}
 
-                  {/* Analysis Details */}
-                  {result.analysis_results && (
-                    <>
-                      <Separator />
-                      <details className="group">
-                        <summary className="flex items-center gap-2 font-semibold cursor-pointer hover:text-primary transition-colors list-none">
-                          <div className="h-5 w-5 rounded bg-muted flex items-center justify-center text-xs group-open:rotate-90 transition-transform">
-                            →
+                    {result.solution && (
+                      <div className="space-y-2">
+                        <div className="flex items-center gap-2">
+                          <div className="h-6 w-6 rounded-md bg-green-500/10 flex items-center justify-center">
+                            <CheckCircle2 className="h-3.5 w-3.5 text-green-600" />
                           </div>
-                          View Detailed Analysis
+                          <h3 className="text-sm font-medium">Solution</h3>
+                        </div>
+                        <div className="prose prose-sm dark:prose-invert max-w-none bg-muted/50 p-4 rounded-md overflow-auto max-h-[500px] text-xs">
+                          <ReactMarkdown
+                            components={{
+                              h1: ({ node, ...props }) => <h1 className="text-sm font-semibold mt-4 mb-2" {...props} />,
+                              h2: ({ node, ...props }) => <h2 className="text-sm font-semibold mt-3 mb-2" {...props} />,
+                              h3: ({ node, ...props }) => <h3 className="text-xs font-semibold mt-2 mb-1" {...props} />,
+                              p: ({ node, ...props }) => <p className="text-xs leading-relaxed mb-2" {...props} />,
+                              code: ({ node, ...props }) => <code className="text-xs bg-background px-1 py-0.5 rounded" {...props} />,
+                              pre: ({ node, ...props }) => <pre className="text-xs bg-background p-2 rounded my-2 overflow-x-auto" {...props} />,
+                              ul: ({ node, ...props }) => <ul className="text-xs space-y-1 my-2" {...props} />,
+                              ol: ({ node, ...props }) => <ol className="text-xs space-y-1 my-2" {...props} />,
+                              li: ({ node, ...props }) => <li className="text-xs" {...props} />,
+                            }}
+                          >
+                            {result.solution}
+                          </ReactMarkdown>
+                        </div>
+                      </div>
+                    )}
+
+                    {result.analysis_results && (
+                      <details className="group">
+                        <summary className="flex items-center gap-2 text-xs font-medium cursor-pointer hover:text-primary transition-colors">
+                          <FileCode className="h-3.5 w-3.5" />
+                          <span>View Technical Details</span>
                         </summary>
-                        <Card className="mt-3 border-muted">
-                          <CardContent className="pt-4">
-                            <pre className="text-xs bg-muted/50 p-4 rounded-md overflow-auto max-h-64 font-mono">
-                              {JSON.stringify(result.analysis_results, null, 2)}
-                            </pre>
-                          </CardContent>
-                        </Card>
+                        <pre className="text-[10px] bg-muted/50 p-3 rounded-md overflow-auto max-h-48 mt-2 font-mono">
+                          {JSON.stringify(result.analysis_results, null, 2)}
+                        </pre>
                       </details>
-                    </>
-                  )}
-                </div>
-              )}
-
-              {!result && !error && !loading && (
-                <div className="text-center py-16 space-y-4">
-                  <div className="mx-auto h-16 w-16 rounded-full bg-muted flex items-center justify-center">
-                    <Code2 className="h-8 w-8 text-muted-foreground" />
+                    )}
                   </div>
-                  <div className="space-y-2">
-                    <p className="font-medium">Ready to Debug</p>
-                    <p className="text-sm text-muted-foreground">
-                      Fill out the form and submit to see AI analysis
+                )}
+
+                {!result && !error && !loading && (
+                  <div className="text-center py-16 text-muted-foreground">
+                    <div className="h-12 w-12 rounded-full bg-muted/50 flex items-center justify-center mx-auto mb-4">
+                      <Code2 className="h-6 w-6" />
+                    </div>
+                    <p className="text-sm font-medium mb-1">No analysis yet</p>
+                    <p className="text-xs">Submit your API issue to get started</p>
+                  </div>
+                )}
+
+                {loading && (
+                  <div className="text-center py-16">
+                    <Loader2 className="h-8 w-8 animate-spin mx-auto text-primary mb-4" />
+                    <p className="text-sm font-medium mb-1">Analyzing</p>
+                    <p className="text-xs text-muted-foreground">
+                      AI agents are diagnosing your issue...
                     </p>
                   </div>
-                </div>
-              )}
-
-              {loading && (
-                <div className="text-center py-16 space-y-4 animate-in fade-in duration-300">
-                  <div className="relative mx-auto h-16 w-16">
-                    <Loader2 className="h-16 w-16 animate-spin text-primary" />
-                    <div className="absolute inset-0 h-16 w-16 rounded-full bg-primary/20 animate-ping" />
-                  </div>
-                  <div className="space-y-2">
-                    <p className="font-semibold">AI Agents Analyzing</p>
-                    <p className="text-sm text-muted-foreground">
-                      Processing your API issue with multi-agent system...
-                    </p>
-                  </div>
-                </div>
-              )}
-            </CardContent>
-          </Card>
+                )}
+              </CardContent>
+            </Card>
+          </div>
         </div>
       </div>
     </div>
