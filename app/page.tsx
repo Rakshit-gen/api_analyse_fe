@@ -56,7 +56,7 @@ export default function LandingPage() {
       </header>
 
       {/* Hero Section */}
-      <section className="container mx-auto px-4 py-24 md:py-32 relative">
+      <section className="container -mt-10 mx-auto px-4 py-24 md:py-32 relative">
         <div className="max-w-5xl mx-auto text-center">
           {/* Floating Badge */}
           <div className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full border bg-card/50 backdrop-blur-sm text-sm fade-in-up">
@@ -71,7 +71,7 @@ export default function LandingPage() {
             <Terminal className="h-12 w-12 text-primary" />
           </div>
           {/* Main Heading with Gradient */}
-          <h1 className="mt-8 text-5xl md:text-7xl font-bold tracking-tight fade-in-up animation-delay-200">
+          <h1 className="mt-8 text-4xl md:text-6xl font-bold tracking-tight fade-in-up animation-delay-200">
             <span className="bg-gradient-to-br from-foreground via-foreground/90 to-foreground/70 bg-clip-text text-transparent">
               AI-Powered API
             </span>
@@ -85,7 +85,7 @@ export default function LandingPage() {
           
           
           {/* Subtitle */}
-          <p className="mt-6 text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed fade-in-up animation-delay-300">
+          <p className="mt-6 text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed fade-in-up animation-delay-300">
             Multi-agent system that analyzes, diagnoses, and fixes your API integration issues{" "}
             <span className="text-foreground font-semibold">in seconds</span>
           </p>
@@ -116,21 +116,11 @@ export default function LandingPage() {
           </div>
 
           {/* Social Proof */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mt-8 text-sm text-muted-foreground fade-in-up animation-delay-500">
-            <div className="flex items-center gap-2">
-              <CheckCircle2 className="h-4 w-4 text-primary flex-shrink-0" />
-              <span>No credit card required</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <CheckCircle2 className="h-4 w-4 text-primary flex-shrink-0" />
-              <span>Free tier available</span>
-            </div>
-          </div>
         </div>
       </section>
 
       {/* Features */}
-      <section className="container mx-auto px-4 py-20 relative">
+      <section className="container -mt-10 mx-auto px-4 py-20 relative">
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
           <div className="text-center mb-16 fade-in-up">
