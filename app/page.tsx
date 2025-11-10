@@ -59,7 +59,7 @@ export default function LandingPage() {
       <section className="container -mt-10 mx-auto px-4 py-24 md:py-32 relative">
         <div className="max-w-5xl mx-auto text-center">
           {/* Floating Badge */}
-          <div className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full border bg-card/50 backdrop-blur-sm text-sm fade-in-up">
+          <div className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full border-2 bg-card/50 backdrop-blur-sm text-sm fade-in-up">
             <Zap className="h-4 w-4 text-primary flex-shrink-0" />
             <span className="text-muted-foreground whitespace-nowrap">Powered by Multi-Agent AI</span>
           </div>
