@@ -69,8 +69,8 @@ export default function LandingPage() {
           <br></br>
 
 
-<div className="mt-4 inline-flex h-24 w-24 rounded-3xl bg-gradient-to-br from-primary/20 via-primary/10 to-transparent backdrop-blur-sm items-center justify-center shadow-2xl border border-primary/20 fade-in-up animation-delay-100 hover-lift">
-            <Image src='/sentra.svg' alt='logo' width={110} height={110} className="rounded-3xl" />
+<div className="mt-4 inline-flex h-24 w-24 rounded-3xl bg-gradient-to-br from-primary/20 via-primary/10 to-transparent backdrop-blur-sm items-center hover:scale-105 transition justify-center shadow-2xl border border-primary/20 fade-in-up animation-delay-100 hover-lift">
+            <Image src='/sentra.svg' alt='logo' width={110} height={110} className="rounded-3xl scale-105 hover:scale-110 transition" />
           </div>
           {/* Main Heading with Gradient */}
           <h1 className="mt-8 text-4xl md:text-6xl font-bold tracking-tight fade-in-up animation-delay-200">
