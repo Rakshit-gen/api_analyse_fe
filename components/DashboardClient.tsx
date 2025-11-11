@@ -6,6 +6,7 @@ import { ThemeToggle } from "./ThemeToggle";
 import { DotPattern } from "./DotPattern";
 import DebugForm from "./DebugForm";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function DashboardClient() {
   const { user, isLoaded } = useUser();
@@ -30,7 +31,7 @@ export default function DashboardClient() {
             <Link href={'/'}>
             <div className="flex items-center gap-3">
               <div className="h-10 w-10 rounded-lg bg-primary/10 flex items-center justify-center">
-                <Terminal className="h-5 w-5 text-primary" />
+                <Image src='/sentra.svg' alt='logo' width={100} height={100} className="rounded-lg" />
               </div>
               <div>
                 <h1 className="text-xl font-semibold tracking-tight">SentralQ</h1>

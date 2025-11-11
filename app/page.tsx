@@ -5,6 +5,7 @@ import { Terminal, ArrowRight, Sparkles, Code2, Shield, Zap, CheckCircle2 } from
 import Link from "next/link";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { AnimatedBackground } from "@/components/AnimatedBackground";
+import Image from "next/image";
 
 export default function LandingPage() {
   return (
@@ -23,7 +24,8 @@ export default function LandingPage() {
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2 group cursor-pointer">
               <div className="h-8 w-8 rounded-lg bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                <Terminal className="h-4 w-4 text-primary" />
+                
+                <Image src='/sentra.svg' alt='logo' width={100} height={100} className="rounded-lg" />
               </div>
               <span className="font-semibold text-lg">SentralQ</span>
             </div>
@@ -68,7 +70,7 @@ export default function LandingPage() {
 
 
 <div className="mt-4 inline-flex h-24 w-24 rounded-3xl bg-gradient-to-br from-primary/20 via-primary/10 to-transparent backdrop-blur-sm items-center justify-center shadow-2xl border border-primary/20 fade-in-up animation-delay-100 hover-lift">
-            <Terminal className="h-12 w-12 text-primary" />
+            <Image src='/sentra.svg' alt='logo' width={110} height={110} className="rounded-3xl" />
           </div>
           {/* Main Heading with Gradient */}
           <h1 className="mt-8 text-4xl md:text-6xl font-bold tracking-tight fade-in-up animation-delay-200">
