@@ -11,9 +11,9 @@ export const metadata: Metadata = {
   title: "SentralQ - API Integration Debugger",
   description: "AI-powered multi-agent system to diagnose and fix API integration issues",
   icons: {
-    icon: "/terminal.png",
-    shortcut: "/terminal.png",
-    apple: "/terminal.png",
+    icon: "/sentra.svg",
+    shortcut: "/sentra.svg",
+    apple: "/sentra.svg",
   },
 };
 
