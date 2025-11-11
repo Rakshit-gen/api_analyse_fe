@@ -6,6 +6,7 @@ import Link from "next/link";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { AnimatedBackground } from "@/components/AnimatedBackground";
 import Image from "next/image";
+import { UserButton } from "@clerk/nextjs";
 
 export default function LandingPage() {
   return (
@@ -45,12 +46,14 @@ export default function LandingPage() {
                 </SignUpButton>
               </SignedOut>
               <SignedIn>
-                <Link href="/dashboard">
-                  <Button size="sm" className="hover-lift group">
-                    Dashboard
-                    <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                  </Button>
-                </Link>
+                   <UserButton 
+                  afterSignOutUrl="/"
+                  appearance={{
+                    elements: {
+                      avatarBox: "h-9 w-9"
+                    }
+                  }}
+                />
               </SignedIn>
             </div>
           </div>
